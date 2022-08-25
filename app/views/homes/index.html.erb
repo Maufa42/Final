@@ -2,6 +2,7 @@
 <% if user_signed_in? %>
   <p>Hello! <%=current_user.email%></p>
   <p>YOu are Successfully Signed In. </p>
+  <p>You are having a role <%=current_user.role%></p>
   <%= link_to "LogUOT",destroy_user_session_path,method: :delete%>
 
 <%else%>
