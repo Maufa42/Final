@@ -1,0 +1,38 @@
+<h1>Vendors Details </h1>
+
+<%= form_with model: @vendor do |f| %>
+
+  <div class="form-control">
+
+    <%= f.label :Description%>
+    <%= f.text_field :description%>
+</div>
+  <div class="form-control">
+
+    <%= f.label :Phone%>
+    <%= f.telephone_field :phone%>
+</div>
+ 
+  <div class="form-control">
+    
+    <%= f.label :Landmark%>
+    <%= f.text_field :nearest_landmark%>
+</div>
+
+  <div class="form-control">
+
+    <%= f.label :Website%>
+    <%= f.url_field :website%>
+</div>
+  <div class="form-control">
+
+    <%= f.label :Established%>
+    <%= f.date_field :established_in%>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+</div>
+   <div class="field">
+      <%= f.label :GSTCertificate %>
+      <%= f.file_field :doc %>
+    </div>
+<%= f.submit%>
+<% end %>
