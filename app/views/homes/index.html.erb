@@ -1,2 +1,12 @@
 <h1>Homes#index</h1>
-<p>Find me in app/views/homes/index.html.erb</p>
+<% if user_signed_in? %>
+  <p>Hello! <%=current_user.email%></p>
+  <p>YOu are Successfully Signed In. </p>
+  <%= link_to "LogUOT",destroy_user_session_path,method: :delete%>
+
+<%else%>
+  <p>YOu Are not Signed IN!</p>
+  <%= link_to "Sign-UP",  new_user_registration_path%>
+  <%= link_to "Login",   new_user_session_path%>
+
+<%end%>
