@@ -20,6 +20,11 @@
     <%=f.select :role,options_for_select(["user","vendor","admin"])%>
     <%# <%= f.select :role, ["0", "1", "2"]  %> 
   </div>
+    <div class="field">
+      <%= f.label :Profile_Picture %>
+      <%= f.file_field :Profile_Picture %>
+    </div>
+
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
