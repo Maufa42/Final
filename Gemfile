@@ -34,7 +34,7 @@ gem 'inherited_resources'
 gem 'simple_form'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
-
+# gem 'ancestry'
 
 
 # Reduces boot times through caching; required in config/boot.rb

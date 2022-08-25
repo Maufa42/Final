@@ -3,7 +3,7 @@
   <p>Hello! <%=current_user.email%></p>
   <p>YOu are Successfully Signed In. </p>
   <p>You are having a role <%=current_user.role%></p>
-  <% if current_user.role == "vendor"%>
+  <% if current_user.role == "vendor" && current_user.admin_approval == 'true '%>
     <%=link_to "Vendor-details", new_vendor_path %><br>
   <%end%>
   <%= link_to "LogUOT",destroy_user_session_path,method: :delete%>
