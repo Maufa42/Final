@@ -1,12 +1,46 @@
 <h1>Homes#index</h1>
+
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <%= image_tag 'happy.jpg',class: "d-block w-100" ,alt: 'happy', style: "height:500px" %>
+      <%# <img src="assets/images/happy.jpg" class="d-block w-100" alt="..."> %>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag 'team.jpg',class: "d-block w-100" ,alt: 'team', style: "height:500px" %>
+
+      <%# <img src="assets/images/team.jpg" class="d-block w-100" alt="..."> %>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag 'wedding.jpg',class: "d-block w-100" ,alt: 'wedding', style: "height:500px" %>
+
+      
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
 <% if user_signed_in? %>
   <p>Hello! <%=current_user.email%></p>
   <p>YOu are Successfully Signed In. </p>
   <p>You are having a role <%=current_user.role%></p>
-  <% if current_user.role == "vendor" && current_user.admin_approval == 'true '%>
-    <%=link_to "Vendor-details", new_vendor_path %><br>
+  <% if current_user.role == "vendor" && current_user.admin_approval == true%>
+    <%=link_to "Vendor-details", new_vendor_path, data: { bs_toggle: 'modal',bs_target: "#newVendor",remote: true } %><br>
   <%end%>
-  <%= link_to "LogUOT",destroy_user_session_path,method: :delete%>
+  <%# <%= link_to "Logout",destroy_user_session_path,method: :delete%> 
 
 <%else%>
   <p>YOu Are not Signed IN!</p>
@@ -14,4 +48,64 @@
   <%= link_to "Login",   new_user_session_path%>
 
 <%end%>
-<%= 
+
+
+
+<!-- Button trigger modal -->
+<%# <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#vendor">
+  Launch demo modal
+</button> %>
+
+<!-- Modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="newVendor" tabindex="-1" aria-labelledby="newVendorLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="newVendorLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div id = "newVendorForm">
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+
+<p>Select a new event from the list.</p>
+
+
+  <div class="col">
+    <div class="row">
+      <%= link_to "Wedding", id: "wedding"%>
+    </div>
+    <div class="row">
+      <%= link_to "Parties",id: "parties"%>
+    </div>
+  </div>
+  <div class="col">
+    <div class="row">
+      <%=link_to "Corporate",id: "corporate"%>
+    </div>
+    <div class="col">
+      <%= link_to "Festive Parties",id: "Festive Parties"%>
+    </div>
+  </div>
+</div>
+
+
+<script>
+
+$(document).ready(function(){
+  $("#wedding").click(function(){
+    console.log("this is it")
+  });
+});
+
+// $(document).ready(function() {
+//   $('wedding').hide()
+
+// });
+</script>

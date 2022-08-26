@@ -8,15 +8,17 @@ class VendorsController < ApplicationController
   end
 
   def create
-    @vendor = Vendor.create(vendor_params)
+    @vendor = Vendor.create!(vendor_params)
+    respond_to do |format|
     if @vendor.save
       flash[:notice] = "Account Created Successfully"
       redirect_to root_path
+      format.js
     else
       flash[:alert] = "Not Created Account"
       redirect_to root_path
-
     end
+
   end
 
   private

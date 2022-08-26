@@ -1,0 +1,46 @@
+<h3>Vendors Details</h3>
+
+<%= form_with(model: @vendor,local: false) do |f| %>
+  
+      <div class="modal-body">
+                    <div class="form-control">
+                        <%= f.label :Description%>
+                        <%= f.text_field :description%>
+                     </div>
+                    <div class="form-control">
+
+                        <%= f.label :Phone%>
+                        <%= f.telephone_field :phone%>
+                    </div>
+                     <div class="form-control">
+                      <%= f.label :Address%>
+                      <%= f.text_field :address%>
+                    </div>
+                    <div class="form-control">
+                      <%= f.label :Landmark%>
+                      <%= f.text_field :nearest_landmark%>
+                    </div>
+
+                    <div class="form-control">
+                      <%= f.label :Website%>
+                      <%= f.url_field :website%>
+                    </div>
+                    <div class="form-control">
+                      <%= f.label :Established%>
+                      <%= f.date_field :established_in%>
+                      <%= f.hidden_field :user_id, value: current_user.id %>
+                    </div>
+                    <div class="field">
+                      <%= f.label :GSTCertificate %>
+                      <%= f.file_field :doc %>
+                    </div>
+      </div>
+     
+      <div class="modal-footer">
+        <%= f.submit%>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        
+      </div>
+
+ 
+<% end %>
