@@ -15,7 +15,7 @@
       <td><%= v.user.fname %>  <%= v.user.lname %> </td>
       <td><%= v.description%></td>
       <td><%= v.website%></td>
-      <td><%=button_to "Book Now"%>
+      <td><%= button_to 'BookNow', {:controller => "bookings", :action => "create", :event_id => @v.id, :user_id=> current_user.id,:vendor_id=>v.id } , :method=>:post  %></td>
     </tr>
   </tbody>
 <%end%>

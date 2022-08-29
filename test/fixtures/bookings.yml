@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  event_id: one
+  vendor_id: one
+  user_id: one
+
+two:
+  event_id: two
+  vendor_id: two
+  user_id: two
