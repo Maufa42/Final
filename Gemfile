@@ -35,6 +35,7 @@ gem 'simple_form'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
 gem 'jquery-ui-rails'
+gem 'stripe'
 # gem 'ancestry'
 
 
