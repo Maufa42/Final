@@ -1,6 +1,9 @@
 class VendorsController < ApplicationController
   def index
     @vendors = Vendor.all
+    @v = Event.where(id: params[:format]).to_a
+    debugger
+    # @v = Vendor.find()
   end
 
   def new
@@ -9,16 +12,22 @@ class VendorsController < ApplicationController
 
   def create
     @vendor = Vendor.create!(vendor_params)
-    respond_to do |format|
+    # respond_to do |format|
     if @vendor.save
       flash[:notice] = "Account Created Successfully"
       redirect_to root_path
-      format.js
+      # format.js
     else
       flash[:alert] = "Not Created Account"
       redirect_to root_path
     end
 
+  end
+
+  def show
+    
+    @v = Event.find_by(id: params[:id])
+    # debugger
   end
 
   private

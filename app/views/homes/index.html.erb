@@ -72,31 +72,35 @@
     </div>
   </div>
 </div>
-
-
+ <% if user_signed_in? && current_user.role == "user" %>
 <p>Select a new event from the list.</p>
 
 
   <div class="col">
     <div class="row">
-      <%= link_to "Wedding", id: "wedding"%>
+      <%= link_to "Wedding",events_path(parent_id: 1),id: "wedding"%>
     </div>
     <div class="row">
-      <%= link_to "Parties",id: "parties"%>
+      <%= link_to "Parties",events_path(parent_id: 9),id: "parties"%>
     </div>
   </div>
   <div class="col">
     <div class="row">
-      <%=link_to "Corporate",id: "corporate"%>
+      <%=link_to "Corporate",events_path(parent_id: 17),id: "corporate"%>
     </div>
     <div class="col">
-      <%= link_to "Festive Parties",id: "Festive Parties"%>
+      <%= link_to "Festive Parties",events_path(parent_id: 22),id: "Festive Parties"%>
     </div>
   </div>
 </div>
+ <% else %>
+ <p>Event Should be Select by user</p>
+ <% end %>
 
 
-<script>
+
+
+<%# <script>
 
 $(document).ready(function(){
   $("#wedding").click(function(){
@@ -108,4 +112,5 @@ $(document).ready(function(){
 //   $('wedding').hide()
 
 // });
-</script>
+
+</script> %>

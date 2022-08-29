@@ -1,0 +1,15 @@
+<% if @event.empty? %>
+
+<p>No Event Currently</p>
+
+<%else%>
+
+
+
+<% @event.each do |wed|%>
+<br><%=link_to wed.name,vendor_path(wed) %>
+<%end%>
+
+<%end%>
+
+

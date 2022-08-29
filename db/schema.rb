@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_25_130122) do
+ActiveRecord::Schema.define(version: 2022_08_29_095523) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -66,6 +66,15 @@ ActiveRecord::Schema.define(version: 2022_08_25_130122) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "event_vendors", force: :cascade do |t|
+    t.integer "event_id", null: false
+    t.integer "vendor_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_event_vendors_on_event_id"
+    t.index ["vendor_id"], name: "index_event_vendors_on_vendor_id"
+  end
+
   create_table "events", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -107,4 +116,6 @@ ActiveRecord::Schema.define(version: 2022_08_25_130122) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "event_vendors", "events"
+  add_foreign_key "event_vendors", "vendors"
 end
