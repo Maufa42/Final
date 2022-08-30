@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/pay-rails/pay.git
+  revision: 4129ecafa330577d7e3a2f3bb812a54a0723fceb
+  specs:
+    pay (5.0.3)
+      rails (>= 6.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -98,6 +105,10 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    dotenv (2.8.1)
+    dotenv-rails (2.8.1)
+      dotenv (= 2.8.1)
+      railties (>= 3.2)
     erubi (1.11.0)
     faraday (2.5.2)
       faraday-net_http (>= 2.0, < 3.1)
@@ -306,12 +317,14 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   devise
+  dotenv-rails
   inherited_resources
   jbuilder (~> 2.7)
   jquery-ui-rails
   listen (~> 3.3)
   omniauth-google-oauth2
   omniauth-rails_csrf_protection
+  pay!
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.6, >= 6.1.6.1)

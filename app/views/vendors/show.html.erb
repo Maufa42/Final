@@ -15,7 +15,8 @@
       <td><%= v.user.fname %>  <%= v.user.lname %> </td>
       <td><%= v.description%></td>
       <td><%= v.website%></td>
-      <td><%= button_to 'BookNow', {:controller => "bookings", :action => "create", :event_id => @v.id, :user_id=> current_user.id,:vendor_id=>v.id } , :method=>:post  %></td>
+      <td><td><%= button_to "Submit Payment", checkout_create_path, params: {:user_id => current_user.id }, remote: true %></td></td>
+      <%# <td><%= button_to 'BookNow', {:controller => "bookings", :action => "create", :event_id => @v.id, :user_id=> current_user.id,:vendor_id=>v.id } , :method=>:post  %> %>
     </tr>
   </tbody>
 <%end%>
@@ -24,3 +25,7 @@
 
 
 
+<script>
+  var stripe = Stripe('<%= Rails.application.credentials.stripe[:public_key]%>');
+  
+</script>

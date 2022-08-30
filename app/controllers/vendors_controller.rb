@@ -1,7 +1,7 @@
 class VendorsController < ApplicationController
   def index
     @vendors = Vendor.all
-    @v = Event.where(id: params[:format]).to_a
+    
     debugger
     # @v = Vendor.find()
   end

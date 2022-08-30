@@ -1,23 +1,22 @@
 class BookingsController < ApplicationController
+  before_action :authenticate_user!
   def index
-
+    @booking 
   end
 
   def create
-    debugger    
+    # debugger    
     @booking = Booking.create(booking_params)
+      debugger
     if @booking.save
-      redirect_to root_path
+      redirect_to  
     else
-      # debugger
-      # debugger
       render :new 
     end
   end
 
-  # def new
-  #   @booking = Booking.new
-  # end
+  def show
+  end
     
   private
     def booking_params
