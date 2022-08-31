@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
     @booking = Booking.create(booking_params)
       debugger
     if @booking.save
-      redirect_to  
+      redirect_to root 
     else
       render :new 
     end

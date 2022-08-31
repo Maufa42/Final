@@ -4,4 +4,5 @@ class Event < ApplicationRecord
     has_many :EventVendors
     has_many :vendors, through: :EventVendors
     has_many :bookings
+    has_many :categories
 end

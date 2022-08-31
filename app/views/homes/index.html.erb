@@ -1,5 +1,3 @@
-<h1>Homes#index</h1>
-
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -75,42 +73,49 @@
  <% if user_signed_in? && current_user.role == "user" %>
 <p>Select a new event from the list.</p>
 
+<div class = "event">
+  <div class="col">
+            <div class="row">
+              <%= link_to "Wedding",events_path(parent_id: 1),remote: true,id: "wedding"%>
+            </div>
+            <div class="row">
+              <%= link_to "Parties",events_path(parent_id: 9),remote: true,id: "parties"%>
+            </div>
+  </div>
 
-  <div class="col">
-    <div class="row">
-      <%= link_to "Wedding",events_path(parent_id: 1),id: "wedding"%>
-    </div>
-    <div class="row">
-      <%= link_to "Parties",events_path(parent_id: 9),id: "parties"%>
-    </div>
+  <div class = "col">
+                <div class="row">
+                  <%=link_to "Corporate",events_path(parent_id: 17),remote: true,id: "corporate"%>
+                </div>
+              
+                <div class="col">
+                  <%= link_to "Festive Parties",events_path(parent_id: 22),remote: true,id: "Festive Parties"%>
+                </div>
   </div>
-  <div class="col">
-    <div class="row">
-      <%=link_to "Corporate",events_path(parent_id: 17),id: "corporate"%>
-    </div>
-    <div class="col">
-      <%= link_to "Festive Parties",events_path(parent_id: 22),id: "Festive Parties"%>
-    </div>
-  </div>
+  
 </div>
  <% else %>
  <p>Event Should be Select by user</p>
  <% end %>
+<div id = "Eventll"></div>
+
+
+<script>
+$("#event").click(function() {
+    let url= <%=events_url %>
+    $.ajax({
+        url: url,
+        type: 'POST',
+        datatype: "script",
+        data: current_user.id
+    });
+}
 
 
 
+// $(".event").click(function(){
+//   var s = $(this)
+//   console.log(s)
+// })
 
-<%# <script>
-
-$(document).ready(function(){
-  $("#wedding").click(function(){
-    console.log("this is it")
-  });
-});
-
-// $(document).ready(function() {
-//   $('wedding').hide()
-
-// });
-
-</script> %>
+</script>

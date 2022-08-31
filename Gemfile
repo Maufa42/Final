@@ -32,6 +32,7 @@ gem 'pay', git: 'https://github.com/pay-rails/pay.git'
 gem 'stripe'
 
 gem 'devise'
+gem 'ancestry'
 gem 'activeadmin', '~> 2.13', '>= 2.13.1' 
 gem 'inherited_resources'
 gem 'simple_form'
