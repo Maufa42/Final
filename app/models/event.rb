@@ -3,6 +3,6 @@ class Event < ApplicationRecord
     # belongs_to :vendor
     has_many :EventVendors
     has_many :vendors, through: :EventVendors
-    has_many :bookings
+    has_many :bookings, dependent: :destroy
     has_many :categories
 end

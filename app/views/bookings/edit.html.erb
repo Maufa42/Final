@@ -1,0 +1,22 @@
+<h1>Booking Event</h1>
+
+<%= form_for(@booking , remote: true) do |form| %>
+ <div class="modal-body">
+ <%=form.hidden_field :vendor_id, :vendor_id => :vendor_id%>
+ <%=form.hidden_field :event_id, :event_id => :event_id%>
+ <%=form.hidden_field :user_id, :user_id => @current_user%>
+                        <%= form.label :Event_Date%>
+                        <%= form.date_field :event_date %>
+
+
+                        <%= form.label :place%>
+                        <%= form.text_field :place %>
+
+</div>
+
+      <div class="modal-footer">
+                        <%= form.submit "Submit",class:"btn btn-primary"%>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+
+<% end %>

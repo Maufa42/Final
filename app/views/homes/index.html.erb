@@ -74,31 +74,30 @@
 <p>Select a new event from the list.</p>
 
 <div class = "event">
-  <div class="col">
-            <div class="row">
+  <div class = "list-group col">
+            <div class="list-group-item list-group-item-action">
               <%= link_to "Wedding",events_path(parent_id: 1),remote: true,id: "wedding"%>
             </div>
-            <div class="row">
+            <div class="list-group-item list-group-item-action">
               <%= link_to "Parties",events_path(parent_id: 9),remote: true,id: "parties"%>
             </div>
-  </div>
-
-  <div class = "col">
-                <div class="row">
+            <div class="list-group-item list-group-item-action">
                   <%=link_to "Corporate",events_path(parent_id: 17),remote: true,id: "corporate"%>
-                </div>
-              
-                <div class="col">
+            </div>
+            <div class="list-group-item list-group-item-action">
                   <%= link_to "Festive Parties",events_path(parent_id: 22),remote: true,id: "Festive Parties"%>
-                </div>
+            </div>
   </div>
   
 </div>
  <% else %>
  <p>Event Should be Select by user</p>
  <% end %>
-<div id = "Eventll"></div>
 
+<div class = "row", id = "Eventll">
+</div>
+
+<%= render "bookings/index"%>
 
 <script>
 $("#event").click(function() {

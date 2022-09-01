@@ -1,7 +1,7 @@
 class Vendor < ApplicationRecord
   belongs_to :user
   has_one_attached :doc
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
   # has_many :events
   has_many :EventVendors
   has_many :events, through: :EventVendors

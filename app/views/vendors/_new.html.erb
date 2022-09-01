@@ -1,4 +1,4 @@
-<h3>Vendors Details</h3>
+<h4>Vendors Details</h4>
 
 <%= form_with(model: @vendor,local: false) do |f| %>
   
@@ -30,6 +30,10 @@
                       <%= f.date_field :established_in%>
                       <%= f.hidden_field :user_id, value: current_user.id %>
                     </div>
+                    <div class = "form-control">
+                      <%= f.collection_select(:categories,Category.all,:id,:name) %>
+                      <%# <%= f.collection_select(:subcategories,SubCategory.all,:id,:name) %> %>
+                    </div>
                     <div class="field">
                       <%= f.label :GSTCertificate %>
                       <%= f.file_field :doc %>
@@ -37,7 +41,7 @@
       </div>
      
       <div class="modal-footer">
-        <%= f.submit%>
+        <%= f.submit "Fill Details",class:"btn btn-primary"%>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         
       </div>
