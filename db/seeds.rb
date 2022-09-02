@@ -5,7 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-# AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
 
 
 # EventVendor.create(event_id: 2, vendor_id: 1) 
@@ -30,35 +29,35 @@
 
 
 
-# wedding = Event.create(name: "Wedding")
-# Event.create(name:"Wedding", parent_id: wedding.id)
-# Event.create(name:"Sangeet", parent_id: wedding.id)
-# Event.create(name:"Reception", parent_id: wedding.id)
-# Event.create(name:"Engagement", parent_id: wedding.id)
-# Event.create(name:"Bachelorette Party", parent_id: wedding.id)
-# Event.create(name:"Destination Weddings", parent_id: wedding.id)
-# Event.create(name:"Bridal Shower", parent_id: wedding.id)
+# # wedding = Event.create(name: "Wedding")
+# Category.create(name:"Wedding", event_id: 1)
+# Category.create(name:"Sangeet", event_id: 1)
+# Category.create(name:"Reception", event_id: 1)
+# Category.create(name:"Engagement", event_id: 1)
+# Category.create(name:"Bachelorette Party", event_id: 1)
+# Category.create(name:"Destination Weddings", event_id: 1)
+# Category.create(name:"Bridal Shower", event_id: 1)
 
-# party = Event.create(name: "Parties")
-# Event.create(name:"Birthday", parent_id: party.id)
-# Event.create(name:"Get-Together", parent_id: party.id)
-# Event.create(name:"Anniversary", parent_id: party.id)
-# Event.create(name:"Graduation", parent_id: party.id)
-# Event.create(name:"Kitty", parent_id: party.id)
-# Event.create(name:"Fresher's", parent_id: party.id)
-# Event.create(name:"Halloween", parent_id: party.id)
+# # party = Event.create(name: "Parties")
+# Category.create(name:"Birthday", event_id: 2)
+# Category.create(name:"Get-Together", event_id: 2)
+# Category.create(name:"Anniversary", event_id: 2)
+# Category.create(name:"Graduation", event_id: 2)
+# Category.create(name:"Kitty", event_id: 2)
+# Category.create(name:"Fresher's", event_id: 2)
+# Category.create(name:"Halloween", event_id: 2)
 
 # corporate = Event.create(name: "Corporate")
-# Event.create(name:"Team-Building", parent_id: corporate.id)
-# Event.create(name:"Farewell", parent_id: corporate.id)
-# Event.create(name:"Annual Day", parent_id: corporate.id)
-# Event.create(name:"Employee meet", parent_id: corporate.id)
+# Category.create(name:"Team-Building", event_id: 3)
+# Category.create(name:"Farewell", event_id: 3)
+# Category.create(name:"Annual Day",event_id: 3)
+# Category.create(name:"Employee meet", event_id: 3)
 
-# festive = Event.create(name: "Festive Parties")
-# Event.create(name:"New Year Party", parent_id: festive.id)
-# Event.create(name:"Diwali Party", parent_id: festive.id)
-# Event.create(name:"Christmas Party", parent_id: festive.id)
-# Event.create(name:"Holi Party", parent_id: festive.id)
+# Categoryve = Event.create(name: "Festive Parties")
+# Category.create(name:"New Year Party",event_id: 4)
+# Category.create(name:"Diwali Party", event_id: 4)
+# Category.create(name:"Christmas Party", event_id: 4)
+# Category.create(name:"Holi Party", event_id: 4)
 
 
 
@@ -69,21 +68,21 @@
 # Category.create(name: "Farmhouses", ancestry: venue.id)
 # Category.create(name: "Hotels", ancestry: venue.id)
 
-stay = Category.create(name: "Stay",event_id: 2 )
-Subcategory.create(category_id: stay.id,name: "Hotels")
-Subcategory.create(category_id: stay.id,name: "Guest Houses")
-Subcategory.create(category_id: stay.id,name: "Service Apartments")
+# stay = Category.create(name: "Stay",event_id: 2 )
+# Subcategory.create(category_id: stay.id,name: "Hotels")
+# Subcategory.create(category_id: stay.id,name: "Guest Houses")
+# Subcategory.create(category_id: stay.id,name: "Service Apartments")
 # Category.create(name: "Hotels", ancestry: stay.id)
 # Category.create(name: "Guest Houses", ancestry: stay.id)
 # Category.create(name: "Service Apartments", ancestry: stay.id)
 
 
-food_beverages = Category.create(name: "Food & Beverages",event_id: 2)
-Subcategory.create(name: "Caterers", category_id: food_beverages.id)
-Subcategory.create(name: "Drinks", category_id: food_beverages.id)
-Subcategory.create(name: "Mixologist", category_id: food_beverages.id)
-Subcategory.create(name: "Cakes, Chocolates", category_id: food_beverages.id)
-Subcategory.create(name: "Sweets", category_id: food_beverages.id)
+# food_beverages = Category.create(name: "Food & Beverages",event_id: 2)
+# Subcategory.create(name: "Caterers", category_id: food_beverages.id)
+# Subcategory.create(name: "Drinks", category_id: food_beverages.id)
+# Subcategory.create(name: "Mixologist", category_id: food_beverages.id)
+# Subcategory.create(name: "Cakes, Chocolates", category_id: food_beverages.id)
+# Subcategory.create(name: "Sweets", category_id: food_beverages.id)
 
 # car_rentals = Category.create(name: "Car Rental")
 # Category.create(name: "Car Rentals",parent_id: car_rentals.id)
@@ -167,3 +166,152 @@ Subcategory.create(name: "Sweets", category_id: food_beverages.id)
 # Category.create(name: "Sexologists", parent_id: sexual_health.id)
 # Category.create(name: "Hygiene and Care", parent_id: sexual_health.id)
 # Category.create(name: "Accessories", parent_id: sexual_health.id)
+
+
+##############################Sub Category################################################
+
+
+# Subcategory.create(name: "Venue")
+# # Subcategory.create(name: "Venue",category_id: 2)
+# # Subcategory.create(name: "Venue",category_id: 3)
+# # Subcategory.create(name: "Venue",category_id: 4)
+# # Subcategory.create(name: "Venue",category_id: 5)
+# # Subcategory.create(name: "Venue",category_id: 18)
+
+# Subcategory.create(name: "Stay")
+# # Subcategory.create(name: "Stay",category_id: 3)
+# # Subcategory.create(name: "Stay",category_id: 5)
+# # Subcategory.create(name: "Stay",category_id: 6)
+# # Subcategory.create(name: "Stay",category_id: 19)
+# # Subcategory.create(name: "Stay",category_id: 22)
+
+
+
+# Subcategory.create(name: "Food & Beverages")
+# # Subcategory.create(name: "Food & Beverages",category_id: 2)
+# # Subcategory.create(name: "Food & Beverages",category_id: 3)
+# # Subcategory.create(name: "Food & Beverages",category_id: 4)
+# # Subcategory.create(name: "Food & Beverages",category_id: 5)
+# # Subcategory.create(name: "Food & Beverages",category_id: 6)
+# # Subcategory.create(name: "Food & Beverages",category_id: 7)
+
+
+
+
+# Subcategory.create(name: "Car Rental")
+# # # Subcategory.create(name: "Car Rental",category_id: 3)
+# # # Subcategory.create(name: "Car Rental",category_id: 11)
+
+# Subcategory.create(name: "Decorators")
+# # # Subcategory.create(name: "Decorators",category_id: 2)
+# # # Subcategory.create(name: "Decorators",category_id: 3)
+# # # Subcategory.create(name: "Decorators",category_id: 4)
+
+
+# Subcategory.create(name: "Beauty_health_style")
+# # # Subcategory.create(name: "Beauty_health_style",category_id: 6)
+# # # Subcategory.create(name: "Beauty_health_style",category_id: 12)
+# # # Subcategory.create(name: "Beauty_health_style",category_id: 2)
+
+# Subcategory.create(name: "Fashion")
+# # # Subcategory.create(name: "Fashion",category_id: 3)
+# # # Subcategory.create(name: "Fashion",category_id: 4)
+# # # Subcategory.create(name: "Fashion",category_id: 5)
+
+
+
+# Subcategory.create(name: "Invitation")
+# # # Subcategory.create(name: "Invitation",category_id: 1)
+
+
+#########################################################Child Category#######################################################################
+
+# Child.create(name: "Banquet Halls", subcategory_id: 1)
+# Child.create(name: "Farmhouses", subcategory_id: 1)
+# Child.create(name: "Hotels", subcategory_id: 1)
+
+
+# Child.create(name: "Bridal Wear",subcategory_id: 7)
+# Child.create(name: "Groom Wear",subcategory_id: 7)
+# Child.create(name: "Designer Wear/Party Wear" ,subcategory_id: 7)
+# Child.create(name: "Shoes & Bags",subcategory_id: 7)
+# Child.create(name: "Watches",subcategory_id: 7)
+# Child.create(name: "Artificial Jewellery",subcategory_id: 7)
+# Child.create(name: "Lingerie, Swimwear, Resortwear",subcategory_id: 7)
+# Child.create(name: "General Clothes",subcategory_id: 7)
+
+# Child.create(name: "Wedding Cards",subcategory_id: 8)
+# Child.create(name: "Invitaion Gifts",subcategory_id: 8)
+
+# Child.create(name: "Caterers", subcategory_id: 3)
+# Child.create(name: "Drinks", subcategory_id: 3)
+# Child.create(name: "Mixologist", subcategory_id: 8)
+# Child.create(name: "Cakes, Chocolates", subcategory_id: 8)
+# Child.create(name: "Sweets",subcategory_id: 8)
+
+# Child.create(name: "Tent House", subcategory_id: 5)
+# Child.create(name: "Florist", subcategory_id: 5)
+# Child.create(name: "Theme Planners",subcategory_id: 5)
+
+# Child.create(name: "Beauty Parlor",subcategory_id: 6 )
+# Child.create(name: "Nail Art", subcategory_id: 6)
+# Child.create(name: "Mehendi",subcategory_id: 6 )
+# Child.create(name: "Spa",subcategory_id: 6 )
+# Child.create(name: "Tattoo",subcategory_id: 6 )
+# Child.create(name: "Hair Stylist",subcategory_id: 6 )
+# Child.create(name: "Cosmetic & Dental Treatment",subcategory_id: 6 )
+# Child.create(name: "Weight Loss",subcategory_id: 6 )
+# Child.create(name: "Stylist", subcategory_id: 6)
+# Child.create(name: "Men's Salon", subcategory_id: 6)
+
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+
+
+# stay = Category.create(name: "Stay",event_id: 2 )
+# Subcategory.create(category_id: stay.id,name: "Hotels")
+# Subcategory.create(category_id: stay.id,name: "Guest Houses")
+# Subcategory.create(category_id: stay.id,name: "Service Apartments")
+# Category.create(name: "Hotels", ancestry: stay.id)
+# Category.create(name: "Guest Houses", ancestry: stay.id)
+# Category.create(name: "Service Apartments", ancestry: stay.id)
+
+
+# food_beverages = Category.create(name: "Food & Beverages",event_id: 2)
+# Subcategory.create(name: "Caterers", category_id: food_beverages.id)
+# Subcategory.create(name: "Drinks", category_id: food_beverages.id)
+# Subcategory.create(name: "Mixologist", category_id: food_beverages.id)
+# Subcategory.create(name: "Cakes, Chocolates", category_id: food_beverages.id)
+# Subcategory.create(name: "Sweets", category_id: food_beverages.id)
+
+# car_rentals = Category.create(name: "Car Rental")
+# Category.create(name: "Car Rentals",parent_id: car_rentals.id)
+
+
+# decorator = Category.create(name: "Decorators")
+# Category.create(name: "Tent House", parent_id: decorator.id)
+# Category.create(name: "Florist", parent_id: decorator.id)
+# Category.create(name: "Theme Planners", parent_id: decorator.id)
+
+
+
+
+
+
+
+
+# Subcategory.create(name: "Banquet-hall",category_id: 1)
+# Subcategory.create(name: "Farm-house",category_id: 1)
+# Subcategory.create(name: "Hotels",category_id: 1)
+
+
+# Subcategory.create(name: "Bridal Wear",category_id)
+# Subcategory.create(name: "Groom Wear", )
+# Subcategory.create(name: "Designer Wear/Party Wear",)
+# Subcategory.create(name: "Shoes & Bags",)
+# Subcategory.create(name: "Watches", )
+# Subcategory.create(name: "Artificial Jewellery", )
+# Subcategory.create(name: "Lingerie, Swimwear, Resortwear", parent_id: fashion.id, active: true)
+# Subcategory.create(name: "General Clothes", parent_id: fashion.id, active: true)
+
+#############################################Categories-Js Sub####################################################
+

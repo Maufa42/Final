@@ -2,6 +2,14 @@ Rails.application.routes.draw do
   post 'checkout/create' => 'checkouts#create', as: "checkout_create"
   # get "checkouts", to: "checkouts#show"
   # get "billing", to: "billing#show"
+
+    resources :category do
+        resources  :subcategory do
+          resources :childs 
+        end
+    end
+
+
   resources :vendors
   resources :bookings
   devise_for :admin_users, ActiveAdmin::Devise.config

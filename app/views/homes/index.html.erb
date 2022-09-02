@@ -76,16 +76,16 @@
 <div class = "event">
   <div class = "list-group col">
             <div class="list-group-item list-group-item-action">
-              <%= link_to "Wedding",events_path(parent_id: 1),remote: true,id: "wedding"%>
+              <%= link_to "Wedding" ,remote: true,id: "wedding" %>
             </div>
             <div class="list-group-item list-group-item-action">
-              <%= link_to "Parties",events_path(parent_id: 9),remote: true,id: "parties"%>
+              <%= link_to "Parties",remote: true,id: "parties" %>
             </div>
             <div class="list-group-item list-group-item-action">
-                  <%=link_to "Corporate",events_path(parent_id: 17),remote: true,id: "corporate"%>
+                  <%=link_to "Corporate",remote: true,id: "corporate" %>
             </div>
             <div class="list-group-item list-group-item-action">
-                  <%= link_to "Festive Parties",events_path(parent_id: 22),remote: true,id: "Festive Parties"%>
+                  <%= link_to "Festive Parties",remote: true,id: "Festive Parties" %>
             </div>
   </div>
   
@@ -97,7 +97,7 @@
 <div class = "row", id = "Eventll">
 </div>
 
-<%= render "bookings/index"%>
+<%# <%= render "bookings/index" %> %>
 
 <script>
 $("#event").click(function() {

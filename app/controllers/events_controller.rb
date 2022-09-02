@@ -4,10 +4,10 @@ class EventsController < ApplicationController
     @events = Event.all;
 
 
-    @event = Event.where(parent_id: params[:parent_id]).to_a
-    respond_to do |format|
-      format.js
-    end
+    # @event = Event.where(parent_id: params[:parent_id]).to_a
+    # respond_to do |format|
+    #   format.js
+    # end
 
   end
 end

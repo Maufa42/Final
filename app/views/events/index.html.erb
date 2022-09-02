@@ -1,4 +1,4 @@
-<% if @event.empty? %>
+<% if @events.empty? %>
 
 <p>No Event Currently</p>
 
@@ -6,8 +6,8 @@
 
 
 
-<% @event.each do |wed|%>
-<br><%=link_to wed.name,vendor_path(wed) %>
+<% @events.each do |event|%>
+<br><%=link_to event.name,category_index_path(event) %>
 <%end%>
 
 <%end%>

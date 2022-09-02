@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_01_080737) do
+ActiveRecord::Schema.define(version: 2022_09_02_105551) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -86,6 +86,15 @@ ActiveRecord::Schema.define(version: 2022_09_01_080737) do
     t.integer "event_id"
   end
 
+  create_table "categorysubcategories", force: :cascade do |t|
+    t.integer "category_id", null: false
+    t.integer "subcategory_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_categorysubcategories_on_category_id"
+    t.index ["subcategory_id"], name: "index_categorysubcategories_on_subcategory_id"
+  end
+
   create_table "checkouts", force: :cascade do |t|
     t.string "title"
     t.integer "price"
@@ -93,6 +102,14 @@ ActiveRecord::Schema.define(version: 2022_09_01_080737) do
     t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "children", force: :cascade do |t|
+    t.string "name"
+    t.integer "subcategory_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["subcategory_id"], name: "index_children_on_subcategory_id"
   end
 
   create_table "event_vendors", force: :cascade do |t|
@@ -108,14 +125,13 @@ ActiveRecord::Schema.define(version: 2022_09_01_080737) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "parent_id"
   end
 
   create_table "subcategories", force: :cascade do |t|
-    t.integer "category_id"
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "category_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -155,6 +171,9 @@ ActiveRecord::Schema.define(version: 2022_09_01_080737) do
   add_foreign_key "bookings", "events"
   add_foreign_key "bookings", "users"
   add_foreign_key "bookings", "vendors"
+  add_foreign_key "categorysubcategories", "categories"
+  add_foreign_key "categorysubcategories", "subcategories"
+  add_foreign_key "children", "subcategories"
   add_foreign_key "event_vendors", "events"
   add_foreign_key "event_vendors", "vendors"
 end
