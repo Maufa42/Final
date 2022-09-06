@@ -1,7 +1,10 @@
 class VendorsController < ApplicationController
   def index
     @vendors = Vendor.all
-    
+    @categories = Category.find(params[:category_id])
+    @event = @categories.event
+    @events = @event.id
+    @eventVendor = @event.vendors
     debugger
     # @v = Vendor.find()
   end

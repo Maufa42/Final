@@ -3,4 +3,5 @@ class Category < ApplicationRecord
   has_many :categorysubcategories
   has_many :subcategories, through: :categorysubcategories
   belongs_to :event
+  has_many :bookings
 end

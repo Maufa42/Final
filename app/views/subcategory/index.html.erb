@@ -1,0 +1,4 @@
+ <% @subcatego.each do |sub| %>
+ <%= link_to "#{sub.name}" , category_subcategory_childs_path(category_id: params[:category_id], subcategory_id: sub.id) %><br>
+ <%end%>
+ 

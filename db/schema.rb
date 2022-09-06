@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_02_105551) do
+ActiveRecord::Schema.define(version: 2022_09_06_104356) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -74,7 +74,11 @@ ActiveRecord::Schema.define(version: 2022_09_02_105551) do
     t.datetime "updated_at", precision: 6, null: false
     t.date "event_date"
     t.string "place"
+    t.integer "category_id", null: false
+    t.integer "subcategory_id", null: false
+    t.index ["category_id"], name: "index_bookings_on_category_id"
     t.index ["event_id"], name: "index_bookings_on_event_id"
+    t.index ["subcategory_id"], name: "index_bookings_on_subcategory_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
     t.index ["vendor_id"], name: "index_bookings_on_vendor_id"
   end
@@ -132,6 +136,7 @@ ActiveRecord::Schema.define(version: 2022_09_02_105551) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "category_id"
+    t.integer "price"
   end
 
   create_table "users", force: :cascade do |t|
@@ -168,7 +173,9 @@ ActiveRecord::Schema.define(version: 2022_09_02_105551) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "bookings", "categories"
   add_foreign_key "bookings", "events"
+  add_foreign_key "bookings", "subcategories"
   add_foreign_key "bookings", "users"
   add_foreign_key "bookings", "vendors"
   add_foreign_key "categorysubcategories", "categories"

@@ -1,7 +1,7 @@
 class SubcategoryController < ApplicationController
 
   def index
-    @category = Category.find(params[:id])
+    @category = Category.find_by(params[:id])
     @subcatego = @category.subcategories
   end
 

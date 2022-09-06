@@ -4,5 +4,6 @@ class Subcategory < ApplicationRecord
   has_many :categorysubcategories
   has_many :categories,through: :categorysubcategories, class_name: "Categorysubcategory", foreign_key: 'category_id'
   has_many :childs
+  has_many :bookings
 
 end

@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  include Pay::Billable
+  # include Pay::Billable
   # pay_customer
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and 
@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :bookings, dependent: :destroy
   devise :database_authenticatable,:omniauthable, :registerable,
          :recoverable, :rememberable, :validatable
-         has_one_attached :image
+  has_one_attached :image
    
   enum role: {"user"=>0, "vendor"=>1, "admin"=>2}
 

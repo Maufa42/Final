@@ -7,10 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+# EventVendor.create(event_id: 1, vendor_id: 1) 
 # EventVendor.create(event_id: 2, vendor_id: 1) 
 # EventVendor.create(event_id: 3, vendor_id: 1) 
 # EventVendor.create(event_id: 4, vendor_id: 1) 
-# EventVendor.create(event_id: 5, vendor_id: 1) 
 # EventVendor.create(event_id: 6, vendor_id: 1) 
 # EventVendor.create(event_id: 7, vendor_id: 1) 
 # EventVendor.create(event_id: 8, vendor_id: 2) 
@@ -226,45 +226,45 @@
 
 #########################################################Child Category#######################################################################
 
-# Child.create(name: "Banquet Halls", subcategory_id: 1)
-# Child.create(name: "Farmhouses", subcategory_id: 1)
-# Child.create(name: "Hotels", subcategory_id: 1)
+Child.create(name: "Banquet Halls", subcategory_id: 1)
+Child.create(name: "Farmhouses", subcategory_id: 1)
+Child.create(name: "Hotels", subcategory_id: 1)
 
 
-# Child.create(name: "Bridal Wear",subcategory_id: 7)
-# Child.create(name: "Groom Wear",subcategory_id: 7)
-# Child.create(name: "Designer Wear/Party Wear" ,subcategory_id: 7)
-# Child.create(name: "Shoes & Bags",subcategory_id: 7)
-# Child.create(name: "Watches",subcategory_id: 7)
-# Child.create(name: "Artificial Jewellery",subcategory_id: 7)
-# Child.create(name: "Lingerie, Swimwear, Resortwear",subcategory_id: 7)
-# Child.create(name: "General Clothes",subcategory_id: 7)
+Child.create(name: "Bridal Wear",subcategory_id: 7)
+Child.create(name: "Groom Wear",subcategory_id: 7)
+Child.create(name: "Designer Wear/Party Wear" ,subcategory_id: 7)
+Child.create(name: "Shoes & Bags",subcategory_id: 7)
+Child.create(name: "Watches",subcategory_id: 7)
+Child.create(name: "Artificial Jewellery",subcategory_id: 7)
+Child.create(name: "Lingerie, Swimwear, Resortwear",subcategory_id: 7)
+Child.create(name: "General Clothes",subcategory_id: 7)
 
-# Child.create(name: "Wedding Cards",subcategory_id: 8)
-# Child.create(name: "Invitaion Gifts",subcategory_id: 8)
+Child.create(name: "Wedding Cards",subcategory_id: 8)
+Child.create(name: "Invitaion Gifts",subcategory_id: 8)
 
-# Child.create(name: "Caterers", subcategory_id: 3)
-# Child.create(name: "Drinks", subcategory_id: 3)
-# Child.create(name: "Mixologist", subcategory_id: 8)
-# Child.create(name: "Cakes, Chocolates", subcategory_id: 8)
-# Child.create(name: "Sweets",subcategory_id: 8)
+Child.create(name: "Caterers", subcategory_id: 3)
+Child.create(name: "Drinks", subcategory_id: 3)
+Child.create(name: "Mixologist", subcategory_id: 8)
+Child.create(name: "Cakes, Chocolates", subcategory_id: 8)
+Child.create(name: "Sweets",subcategory_id: 8)
 
-# Child.create(name: "Tent House", subcategory_id: 5)
-# Child.create(name: "Florist", subcategory_id: 5)
-# Child.create(name: "Theme Planners",subcategory_id: 5)
+Child.create(name: "Tent House", subcategory_id: 5)
+Child.create(name: "Florist", subcategory_id: 5)
+Child.create(name: "Theme Planners",subcategory_id: 5)
 
-# Child.create(name: "Beauty Parlor",subcategory_id: 6 )
-# Child.create(name: "Nail Art", subcategory_id: 6)
-# Child.create(name: "Mehendi",subcategory_id: 6 )
-# Child.create(name: "Spa",subcategory_id: 6 )
-# Child.create(name: "Tattoo",subcategory_id: 6 )
-# Child.create(name: "Hair Stylist",subcategory_id: 6 )
-# Child.create(name: "Cosmetic & Dental Treatment",subcategory_id: 6 )
-# Child.create(name: "Weight Loss",subcategory_id: 6 )
-# Child.create(name: "Stylist", subcategory_id: 6)
-# Child.create(name: "Men's Salon", subcategory_id: 6)
+Child.create(name: "Beauty Parlor",subcategory_id: 6 )
+Child.create(name: "Nail Art", subcategory_id: 6)
+Child.create(name: "Mehendi",subcategory_id: 6 )
+Child.create(name: "Spa",subcategory_id: 6 )
+Child.create(name: "Tattoo",subcategory_id: 6 )
+Child.create(name: "Hair Stylist",subcategory_id: 6 )
+Child.create(name: "Cosmetic & Dental Treatment",subcategory_id: 6 )
+Child.create(name: "Weight Loss",subcategory_id: 6 )
+Child.create(name: "Stylist", subcategory_id: 6)
+Child.create(name: "Men's Salon", subcategory_id: 6)
 
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+# AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
 
 
 # stay = Category.create(name: "Stay",event_id: 2 )

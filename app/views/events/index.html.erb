@@ -7,9 +7,20 @@
 
 
 <% @events.each do |event|%>
-<br><%=link_to event.name,category_index_path(event) %>
+<br><%=link_to event.name,category_index_path(:event_id=> event.id)%>
 <%end%>
 
 <%end%>
 
 
+<script>
+$("#event").click(function() {
+    let url= <%=bookings_url %>
+    $.ajax({
+        url: url,
+        type: 'POST',
+        datatype: "script",
+        data: event.id
+    });
+}
+</script>

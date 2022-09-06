@@ -30,14 +30,14 @@
                       <%= f.date_field :established_in%>
                       <%= f.hidden_field :user_id, value: current_user.id %>
                     </div>
-                    <%# <div class = "form-control">
-                      <%= f.collection_select(:categories,Category.all,:id,:name) %>
-                      <%# <%= f.collection_select(:subcategories,SubCategory.all,:id,:name) %> %>
-                     %>
+                    <div class = "form-control">
+                      <%= f.collection_select(:categories,Event.all,:id,:name) %>
+                      <%= f.collection_select(:subcategories,Subcategory.all,:id,:name) %>
+                    </div>
                     <div class="field">
                       <%= f.label :GSTCertificate %>
                       <%= f.file_field :doc %>
-                    </div>
+                    </div>  
       </div>
      
       <div class="modal-footer">

@@ -27,9 +27,10 @@ gem 'jbuilder', '~> 2.7'
 
 
 ## Custom gem
-gem 'pay', git: 'https://github.com/pay-rails/pay.git'
+# gem 'pay', git: 'https://github.com/pay-rails/pay.git'
 gem 'pry', '~> 0.13.1'
 gem 'stripe'
+gem 'stripe-rails'
 
 gem 'devise'
 gem 'ancestry'
