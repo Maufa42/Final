@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   post 'checkout/create' => 'checkouts#create', as: "checkout_create"
+  post "webhook",to:"webhooks#create"
   # get "checkouts", to: "checkouts#show"
   # get "billing", to: "billing#show"
 

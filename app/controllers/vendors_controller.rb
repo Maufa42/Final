@@ -5,7 +5,7 @@ class VendorsController < ApplicationController
     @event = @categories.event
     @events = @event.id
     @eventVendor = @event.vendors
-    debugger
+    # debugger
     # @v = Vendor.find()
   end
 

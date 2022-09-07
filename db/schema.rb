@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_06_104356) do
+ActiveRecord::Schema.define(version: 2022_09_07_083123) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 2022_09_06_104356) do
     t.string "place"
     t.integer "category_id", null: false
     t.integer "subcategory_id", null: false
+    t.boolean "status", default: false
     t.index ["category_id"], name: "index_bookings_on_category_id"
     t.index ["event_id"], name: "index_bookings_on_event_id"
     t.index ["subcategory_id"], name: "index_bookings_on_subcategory_id"
@@ -137,6 +138,8 @@ ActiveRecord::Schema.define(version: 2022_09_06_104356) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "category_id"
     t.integer "price"
+    t.string "stripe_product_id"
+    t.string "stripe_price_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -155,6 +158,7 @@ ActiveRecord::Schema.define(version: 2022_09_06_104356) do
     t.string "type"
     t.string "provider"
     t.string "uid"
+    t.string "stripe_customer_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

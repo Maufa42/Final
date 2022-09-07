@@ -3,9 +3,9 @@ class BookingsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:create, :destroy]
   def index
     @bookings = Booking.all
-
+    
     @user_booking = current_user.bookings.to_a
-    binding.pry
+    # binding.pry
   end
 
   def new
@@ -15,7 +15,6 @@ class BookingsController < ApplicationController
 
   def create
     # @user = current_user
-    debugger
     @booking = Booking.new
     @booking.vendor_id= params.require(:booking).fetch(:vendor_id)
     @booking.user_id= params.require(:booking).fetch(:user_id)
@@ -24,10 +23,11 @@ class BookingsController < ApplicationController
     @booking.event_date= params.require(:booking).fetch(:event_date)
     @booking.category_id= params.require(:booking).fetch(:category_id)
     @booking.subcategory_id= params.require(:booking).fetch(:subcategory_id)
-
+    # debugger
+    
     # binding.pry
     if @booking.save
-      redirect_to bookings_url
+      redirect_to booking_url(@booking)
     else
       render :new 
     end

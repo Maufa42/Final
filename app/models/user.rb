@@ -24,5 +24,11 @@ class User < ApplicationRecord
     end
   end
 
+  after_create do
+    if(current_user.role=='user')
+        customer = Stripe::Customer.create(email:email, name:fname)
+        update(stripe_customer_id: customer.id)
+    end
+  end
 
 end
