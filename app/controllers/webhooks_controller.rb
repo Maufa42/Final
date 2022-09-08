@@ -27,6 +27,7 @@ class WebhooksController < ApplicationController
       session = event.data.object
       booking = Booking.find_by(id: session.metadata.id)
       booking.update(status: true) 
+      BookingMailer.booking_created(booking).deliver_now!
     end
 
   end

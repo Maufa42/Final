@@ -34,8 +34,9 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
-
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
+config.action_mailer.raise_delivery_errors = true
 
 
 config.stripe.secret_key = Rails.application.credentials.stripe[:secret_key]
@@ -46,7 +47,24 @@ config.stripe.publishable_key = Rails.application.credentials.stripe[:publishabl
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
+  
+  # config.action_mailer.delivery_method = :letter_opener
+  
+  config.action_mailer.default_url_options = { :host => "localhost:3000" }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  address:              'smtp.gmail.com',
+  port:                 587,
+  domain:               'localhost:3000',
+  user_name:            Rails.application.credentials.google_smtp[:email],
+  password:             Rails.application.credentials.google_smtp[:password],
+  authentication:       'plain',
+  
+  }
 
+
+  config.action_mailer.perform_deliveries = true
+  
   # Raise exceptions for disallowed deprecations.
   config.active_support.disallowed_deprecation = :raise
 

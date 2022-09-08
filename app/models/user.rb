@@ -3,6 +3,10 @@ class User < ApplicationRecord
   # pay_customer
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and 
+
+
+
+  validates :email,:fname,:lname,:dob, presence: true
   has_many :vendors
   has_many :bookings, dependent: :destroy
   devise :database_authenticatable,:omniauthable, :registerable,

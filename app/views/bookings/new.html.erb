@@ -1,7 +1,8 @@
 <h1>Booking Event</h1>
 
-<%= form_for(@booking ) do |form| %>
+<%= form_for(@booking,:validate=> true ) do |form| %>
  <div class="modal-body">
+   
   <%=form.hidden_field :category_id, :category_id => :categories_id%>
  <%=form.hidden_field :subcategory_id, :subcategory_id => :subcategories_id%>
  <%=form.hidden_field :vendor_id, :vendor_id => :vendor_id%>

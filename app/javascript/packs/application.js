@@ -5,11 +5,16 @@
 
 
 
-//= require jquery-ui
+//= require jquery.validate
+//= require jquery.validate.additional-methods
+
+
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import '@client-side-validations/client-side-validations/src'
+
 
 Rails.start()
 Turbolinks.start()
