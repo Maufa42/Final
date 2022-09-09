@@ -71,8 +71,6 @@ GEM
       zeitwerk (~> 2.3)
     addressable (2.8.1)
       public_suffix (>= 2.0.2, < 6.0)
-    ancestry (4.2.0)
-      activerecord (>= 5.2.6)
     arbre (1.5.0)
       activesupport (>= 3.0.0, < 7.1)
       ruby2_keywords (>= 0.0.2, < 1.0)
@@ -91,6 +89,12 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
+    carrierwave (0.11.2)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
+      mimemagic (>= 0.3.0)
     character_set (1.6.0)
       sorted_set (~> 1.0)
     childprocess (4.1.0)
@@ -146,6 +150,7 @@ GEM
       character_set (~> 1.4)
       regexp_parser (~> 2.5)
       regexp_property_values (~> 1.0)
+    json (2.6.2)
     jwt (2.4.1)
     kaminari (1.2.2)
       activesupport (>= 4.1.0)
@@ -170,6 +175,12 @@ GEM
     marcel (1.0.2)
     matrix (0.4.2)
     method_source (1.0.0)
+    mime-types (3.4.1)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2022.0105)
+    mimemagic (0.4.3)
+      nokogiri (~> 1)
+      rake
     mini_mime (1.1.2)
     minitest (5.16.3)
     msgpack (1.5.6)
@@ -257,6 +268,7 @@ GEM
       actionpack (>= 5.0)
       railties (>= 5.0)
     rexml (3.2.5)
+    rmagick (2.16.0)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
     sass-rails (6.0.0)
@@ -332,10 +344,10 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin (~> 2.13, >= 2.13.1)
-  ancestry
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)
+  carrierwave (~> 0.11.2)
   client_side_validations
   devise
   dotenv-rails
@@ -350,6 +362,7 @@ DEPENDENCIES
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.6, >= 6.1.6.1)
+  rmagick
   sass-rails (>= 6)
   selenium-webdriver (>= 4.0.0.rc1)
   simple_form

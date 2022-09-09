@@ -1,0 +1,12 @@
+Booking#show
+
+Booking_id:    <%=@booking.id%><br>
+Username: <%=@booking.user.fname%><br>
+Event_location: <%= @booking.place%><br>
+Event_date: <%= @booking.event_date%><br>
+Vendor_name: <%= @booking.vendor.user.fname%><br>
+Vendor_phone-number:  <%= @booking.vendor.phone%><br>
+vendor(Web-address): <%= @booking.vendor.website %><br>
+Price (INR): <%= @booking.subcategory.price%>
+<td><%= link_to "Pay",checkout_create_path(booking_id: @booking.id),method: :post,class:"btn btn-success",remote: true if @booking.status==false%></td>
+  

@@ -4,7 +4,7 @@
 // that code so it'll be compiled.
 
 
-
+//= require jquery.Jcrop
 //= require jquery.validate
 //= require jquery.validate.additional-methods
 

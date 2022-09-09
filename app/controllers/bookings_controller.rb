@@ -11,6 +11,9 @@ class BookingsController < ApplicationController
   def new
     # binding.pry
     @booking = Booking.new(booking_params)
+    # respond_to do |format|
+    #   format.js
+    # end
   end
 
   def create
@@ -27,7 +30,10 @@ class BookingsController < ApplicationController
     
     # binding.pry
     if @booking.save
-      redirect_to booking_url(@booking)
+      respond_to do |format|
+        format.js 
+      end
+      # redirect_to booking_url(@booking)
     else
       render :new 
     end

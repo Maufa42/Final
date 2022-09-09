@@ -1,9 +1,8 @@
 <h1>Booking Event</h1>
 
-<%= form_for(@booking,:validate=> true ) do |form| %>
- <div class="modal-body">
-   
-  <%=form.hidden_field :category_id, :category_id => :categories_id%>
+<%= form_for(@booking,:validate=> true,:remote=>true, :html=>{:id=>"booking"} ) do |form| %>
+<div class="modal-body">
+ <%=form.hidden_field :category_id, :category_id => :categories_id%>
  <%=form.hidden_field :subcategory_id, :subcategory_id => :subcategories_id%>
  <%=form.hidden_field :vendor_id, :vendor_id => :vendor_id%>
  <%=form.hidden_field :event_id, :event_id => :event_id%>
@@ -21,5 +20,21 @@
                         <%= form.submit "Submit",class:"btn btn-primary"%>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div>
-
+     
 <% end %>
+<style>
+
+.field_with_errors {
+  display: inline;
+}
+
+.field_with_errors .message {
+  color: #D00;
+  padding-left: 5px;
+  font-size: 12px;
+}
+
+
+
+
+</style>

@@ -33,7 +33,7 @@ gem 'stripe'
 gem 'stripe-rails'
 
 gem 'devise'
-gem 'ancestry'
+# gem 'ancestry'
 gem 'activeadmin', '~> 2.13', '>= 2.13.1' 
 gem 'inherited_resources'
 gem 'simple_form'
@@ -42,7 +42,8 @@ gem 'omniauth-rails_csrf_protection'
 gem 'jquery-validation-rails', '~> 1.13', '>= 1.13.1'
 gem 'client_side_validations'
 gem 'jquery-ui-rails'
-
+gem 'carrierwave', '~> 0.11.2'
+gem 'rmagick'
 # gem "letter_opener"
 # gem 'ancestry'
 

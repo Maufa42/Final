@@ -3,7 +3,8 @@ class User < ApplicationRecord
   # pay_customer
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and 
-
+  attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
+  after_update :crop_avatar
 
 
   validates :email,:fname,:lname,:dob, presence: true
@@ -11,9 +12,13 @@ class User < ApplicationRecord
   has_many :bookings, dependent: :destroy
   devise :database_authenticatable,:omniauthable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_one_attached :image
-   
+  mount_uploader :image, ImageUploader
+  
   enum role: {"user"=>0, "vendor"=>1, "admin"=>2}
+
+  def crop_avatar
+    image.recreate_versions! if crop_x.present?
+  end
 
   def self.from_omniauth(auth)
     
@@ -28,11 +33,17 @@ class User < ApplicationRecord
     end
   end
 
-  after_create do
-    if(current_user.role=='user')
-        customer = Stripe::Customer.create(email:email, name:fname)
-        update(stripe_customer_id: customer.id)
-    end
-  end
+  # after_create do
+  #   if(current_user.role=='user')
+  #       customer = Stripe::Customer.create(email:email, name:fname)
+  #       update(stripe_customer_id: customer.id)
+  #   end
+  # end
+
+  # before_update do
+  #   if(current_user.avatar.present?)
+  #     render :crop
+  #   end
+  # end
 
 end
