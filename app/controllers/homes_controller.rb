@@ -2,6 +2,7 @@ class HomesController < ApplicationController
   before_action :set_vendor
 
   def index
+    # debugger
     @booking = Booking.all
     @vendor
     @event = Event.all

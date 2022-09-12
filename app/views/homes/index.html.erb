@@ -34,8 +34,8 @@
 <% if user_signed_in? %>
   <p>Hello! <%=current_user.email%></p>
   <p>YOu are Successfully Signed In. </p>
-  <p>You are having a role <%=current_user.role%></p>
-  <% if current_user.role == "vendor" && current_user.admin_approval == true%>
+  <p>You are having a role <%=current_user[:role]%></p>
+  <% if current_user[:role] == "vendor" && current_user.admin_approval == true%>
     <%=link_to "Vendor-details", new_vendor_path, data: { bs_toggle: 'modal',bs_target: "#newVendor",remote: true } %><br>
   <%end%>
   <%# <%= link_to "Logout",destroy_user_session_path,method: :delete%> 
@@ -71,7 +71,7 @@
   </div>
 </div>
  
-<% if user_signed_in? && current_user.role == "vendor"%>
+<% if user_signed_in? && current_user[:role] == "vendor"%>
   <% if @vendor.nil? %>
   <p>NO User had Booked an event for u
   <%else%>
@@ -102,7 +102,7 @@
 <%end%>
 
 
-<% if user_signed_in? && current_user.role == "user" %>
+<% if user_signed_in? && current_user[:role] == "user" %>
       <%# <p>Select a new event from the list.</p> %>
 
 <div class="accordion" id="accordionExample">

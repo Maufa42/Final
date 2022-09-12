@@ -44,6 +44,7 @@ gem 'client_side_validations'
 gem 'jquery-ui-rails'
 gem 'carrierwave', '~> 0.11.2'
 gem 'rmagick'
+gem "mini_magick"
 # gem "letter_opener"
 # gem 'ancestry'
 

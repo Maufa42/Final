@@ -1,17 +1,42 @@
 <h1>Crop Avatar</h1>
 
-<%= image_tag @user.avatar_url(:large), id: "cropbox" %>
+<%= image_tag @user.image_url(:large), id: "cropbox" %>
 
 <h4>Preview</h4>
 <div style="width:100px; height:100px; overflow:hidden">
-  <%= image_tag @user.avatar.url(:large), :id => "preview" %>
+  <%= image_tag @user.image.url(:thumb), :id => "preview" %>
 </div>
 
-<%= form_for @user do |f| %>
+<%= form_with model: @user, url: user_registration_url do |f| %>
   <% %w[x y w h].each do |attribute| %>
-    <%= f.hidden_field "crop_#{attribute}" %>
+    <%= f.hidden_field "crop_#{attribute}" %><br>
   <% end %>
   <div class="actions">
+    <%= f.hidden_field :id,value: current_user[:id]%>
     <%= f.submit "Crop" %>
   </div>
-<% end %>
+<% end %> 
+
+
+<script>
+ const stage = Jcrop.attach('cropbox',{
+   
+   aspectRatio: 1,
+  // setSelect: [0,0,600,600]
+
+ });
+
+stage.listen('crop.change',function(widget,e){
+    let pos = widget.pos
+    console.log(pos);
+  update: (pos) =>
+  $('#user_crop_y').val(pos.y)
+  $('#user_crop_w').val(pos.w)
+  $('#user_crop_y').val(pos.y)
+  $('#user_crop_x').val(pos.x)
+  $('#user_crop_h').val(pos.h)
+});
+
+</script>
+
+
