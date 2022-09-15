@@ -1,0 +1,31 @@
+<div id =  "subcatego">
+ <%if @subcatego.nil?%>
+ <p> No categories For this.</p>
+ <%else%>
+ 
+ <% @subcatego.each do |sub| %>
+ <%= link_to "#{sub.name}" , category_subcategory_childs_path(category_id: params[:category_id], subcategory_id: sub.id),remote: true %><br>
+ <%end%>
+ 
+ <%end%>
+</div>
+ <script>
+    // $('#data').append(this);
+
+$(document).ready(function() {
+    $("#subcatego").click(function() {
+    let url=  category_subcategory_childs_url 
+    $.ajax({
+        url: url,
+        type: 'POST',
+        datatype: "script",
+        data: current_user.id
+    });
+}
+
+});  
+
+
+
+
+</script>

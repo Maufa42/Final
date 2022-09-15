@@ -31,15 +31,25 @@ end
 def update
   @user = User.find(params[:user][:id])
   binding.pry
-  if @user.update(account_update_params)
-    if params[:user][:image].present?
-      render :crop
-      else
-        redirect_to root_path, notice: "Successfully Updated User"
-      end
-    else
-      render :edit
-    end
+
+  if @user.update!(account_update_params)
+          if params[:user][:image].present?
+            render :crop
+          #   respond_to do |format|
+          #     @user.image = params[:user][:image]
+          #     @user.save!
+          #  end
+            else
+              redirect_to root_path, notice: "Successfully Updated User"
+            end
+  else
+    render :edit
+  end
+
+  
+
+
+
 
   end
 
@@ -47,12 +57,12 @@ def update
   @user = User.find(params[:user][:id])
 
     @user.destroy
-
     respond_to do |format|
-      format.html { redirect_to root_url, notice: "Event was successfully destroyed." }
-      format.json { head :no_content }
+      format.html { redirect_to root_url, notice: "Successfully destroyed." }
     end
   end
+
+
 
   private
 

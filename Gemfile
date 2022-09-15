@@ -42,9 +42,10 @@ gem 'omniauth-rails_csrf_protection'
 gem 'jquery-validation-rails', '~> 1.13', '>= 1.13.1'
 gem 'client_side_validations'
 gem 'jquery-ui-rails'
-gem 'carrierwave', '~> 0.11.2'
+gem 'carrierwave'
 gem 'rmagick'
 gem "mini_magick"
+gem 'image_processing', '~> 1.12', '>= 1.12.2'
 # gem "letter_opener"
 # gem 'ancestry'
 

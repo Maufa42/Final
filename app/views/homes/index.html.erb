@@ -104,47 +104,43 @@
 
 <% if user_signed_in? && current_user[:role] == "user" %>
       <%# <p>Select a new event from the list.</p> %>
-
-<div class="accordion" id="accordionExample">
-<%@event.each do |event|%>
-      <div class="accordion-item">
-            <h2 class="accordion-header" id="headingOne">
-              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                <%=event.name%>
-              </button>
-            </h2>
-            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-              <div class="accordion-body">
-              <%event.categories.each do |f|%>
-                <strong> <%=link_to f.name %> </strong>
-                <%end%>
+<div class= 'box d-flex'>
+        <div class="accordion" id="accordionExample">
+        <%@event.each_with_index do |event,index|%>
+              <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" href="#collapse<%= index.to_s %>"  aria-controls="collapseOne">
+                        <%=event.name%>
+                      </button>
+                    </h2>
+                    <div id="collapse<%= index.to_s %>" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                      <div class="accordion-body" id = "event">
+                      <%event.categories.each do |f|%>
+                        <strong> <%=link_to f.name,category_subcategory_index_path(:category_id =>  f.id), id: 'name${index}',remote: true%> </strong><br>
+                        <%end%>
+                      </div>
+                    </div>
               </div>
-            </div>
-      </div>
-    <%end%>
+            <%end%>
+        
+        </div>
+        <div id = "data">
+       <p>This is For categories  </p>
+        </div>
 </div>
-
  <% else %>
  <p>Event Should be Select by user</p>
  <% end %>
-
-
-
-
-
-
-
-
-
-
-<div class = "row", id = "Eventll">
-</div>
-
+ <img src="https://img.icons8.com/external-justicon-lineal-color-justicon/64/000000/external-wedding-romantic-love-justicon-lineal-color-justicon.png" width="55px" height = "50rem"/>
 <%# <%= render "bookings/index" %>
 
+
 <script>
-$("#event").click(function() {
-    let url= <%=events_url %>
+    // $('#data').append(this);
+
+$(document).ready(function() {
+    $("#event").click(function() {
+    let url= category_subcategory_index_url 
     $.ajax({
         url: url,
         type: 'POST',
@@ -152,6 +148,18 @@ $("#event").click(function() {
         data: current_user.id
     });
 }
+
+});  
+
+
+
+
 </script>
 
+<style>
+#accordionExample {
+  max-width: 400px;
+  margin-left: 0px;
 
+}
+</style>

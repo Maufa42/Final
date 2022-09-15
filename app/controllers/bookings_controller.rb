@@ -45,6 +45,7 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+    binding.pry
     @booking = Booking.find(params[:id])
     
 

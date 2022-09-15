@@ -17,11 +17,12 @@ Rails.application.routes.draw do
   resources :bookings
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' ,registrations:"registrations",applications: "application"} do
+  # patch '/users', to: "registrations#update"
+  # delete '/users', to: "registrations@destroy"
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' ,registrations:"registrations"} do
     get '/users/sign_out' => 'devise/sessions#destroy'
     get '/users/edit' => 'devise/sessions#edit'
-    patch 'users/update'=> 'devise/sessions#update'
+    # patch 'users/update'=> 'devise/sessions#update'
   end
 
 

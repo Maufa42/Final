@@ -8,7 +8,9 @@ class User < ApplicationRecord
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
 
   after_create :set_stripe_id
-  before_update :crop_image 
+
+  # after_update :crop_image
+  after_update :crop_image, if: :image_present
 
 
   validates :email,:fname,:lname,:dob, presence: true
@@ -21,9 +23,13 @@ class User < ApplicationRecord
   
   enum role: {"user"=>0, "vendor"=>1, "admin"=>2}
 
-  def crop_image
-    
-    image.recreate_versions! if crop_x.present?
+  def crop_image 
+    binding.pry
+    image.recreate_versions! if crop_x.present? && self.image.size > 0
+  end
+
+  def image_present
+    self.image.size > 0
   end
 
 

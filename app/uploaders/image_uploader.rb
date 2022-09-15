@@ -2,6 +2,8 @@
 
 class ImageUploader < CarrierWave::Uploader::Base
   # require 'rmagick' 
+  # require "image_processing/mini_magick"
+
   require "mini_magick"
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
@@ -20,17 +22,19 @@ class ImageUploader < CarrierWave::Uploader::Base
  
 
   version :large do
-    process :crop
 
     resize_to_limit(600, 600)
   end
 
   version :thumb do
-    process :crop
+    process :cropimg
     resize_to_fill(100, 100)
   end
   
-  def crop
+  def cropimg
+    # u = ""
+    binding.pry
+
       if model.crop_x.present?
         resize_to_limit(600, 600)
           manipulate! do |img|
@@ -38,11 +42,22 @@ class ImageUploader < CarrierWave::Uploader::Base
             y = model.crop_y.to_i
             w = model.crop_w.to_i
             h = model.crop_h.to_i
-            # img.crop!(x, y, w, h)
-            img.crop([[w, h].join('x'),[x, y].join('+')].join('+'))
-            binding.pry
+
+          img.crop([[w, h].join('x'),[x, y].join('+')].join('+'))
+          model.crop_x = nil
+          model.crop_y = nil
+          model.crop_w = nil
+          model.crop_h = nil
+          binding.pry
+          model.update(:image => img)
+          
+          # img.tap(&:auto_orient)
+          # break;
+
           end
+          # self.update(u)          
       end
+      binding.pry
   end
   
 end
